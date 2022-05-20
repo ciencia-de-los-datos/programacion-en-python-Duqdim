@@ -268,7 +268,7 @@ def pregunta_07():
             if valores[q]==l:
                 g=(colums[q][0])
                 co.append(g)    
-        cp=(l,(co))
+        cp=(int(l),(co))
         pp.append(cp)           
     return (pp)
 
@@ -316,7 +316,7 @@ def pregunta_08():
                 g=(colums[q][0])
                 co.append(g)
         coo=sorted(set(co))     
-        cp=(l,(coo))
+        cp=(int(l),(coo))
         pp.append(cp)  
     return(pp)
 
