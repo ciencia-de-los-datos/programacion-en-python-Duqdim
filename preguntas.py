@@ -270,7 +270,7 @@ def pregunta_07():
                 co.append(g)    
         cp=(l,(co))
         pp.append(cp)           
-    return 
+    return (pp)
 
 
 def pregunta_08():
@@ -318,7 +318,7 @@ def pregunta_08():
         coo=sorted(set(co))     
         cp=(l,(coo))
         pp.append(cp)  
-    return (pp)
+    return(pp)
 
 
 def pregunta_09():
