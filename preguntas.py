@@ -267,15 +267,10 @@ def pregunta_07():
         for q in range(len(valores)):
             if valores[q]==l:
                 g=(colums[q][0])
-                co.append(g)
-                cp=(l,(co))
-                pp.append(cp)
-            
-
-                go.append(cp)
-                print(go)
-
-    return
+                co.append(g)    
+        cp=(l,(co))
+        pp.append(cp)           
+    return 
 
 
 def pregunta_08():
@@ -300,6 +295,29 @@ def pregunta_08():
     ]
 
     """
+    colu2=[]
+    co=[]
+    valores = []
+    valor= []
+    go=[]
+    pp=[]
+    for valor in colums:
+            valores.append(valor[1])
+            valor.append(valor)
+    for x in valores:
+        r= x
+        colu2.append(r)
+        t=sorted(set(colu2))
+    for l in t:
+        co=[] 
+          
+        for q in range(len(valores)):
+            if valores[q]==l:
+                g=(colums[q][0])
+                co.append(g)
+        coo=sorted(set(co))     
+        cp=(l,(coo))
+        pp.append(cp)  
     return
 
 
@@ -323,7 +341,36 @@ def pregunta_09():
     }
 
     """
-    return
+    valos=[]
+    valos1=[]
+    valos2=[]
+    valos3=[]
+    suma=0
+    y={}
+    for valor in colums:
+        rt=(valor[4])
+        rt=rt.split(sep=',')
+        for h in rt:
+            valos.append(h)
+    for jj in valos:
+        v=jj.split(sep=':')
+        n=(v[0])
+        valos1.append(n)
+
+    lista=sorted(set(valos1))
+    for k in lista:
+        suma=0
+        for u in valos1:
+            if u==k:
+                suma = suma+1
+        valos3.append(suma)
+    for i in range(len(valos3)):
+        y[lista[i]]=valos3[i]
+
+                
+   
+
+    return(y)
 
 
 def pregunta_10():
@@ -344,7 +391,17 @@ def pregunta_10():
 
 
     """
-    return
+    with open("data.csv", "r")as file:
+        datos=file.readlines()
+    datos=[line.replace("\n", "")for line in datos]
+    datos=[line.split("\t")for line in datos]
+    col4=[len(line[3].split(","))for line in datos]
+    col5=[len(line[4].split(","))for line in datos]
+    col1=[(line[0])for line in datos]
+    data_base=list(zip(col1,col4,col5))
+    
+    return (data_base) 
+   
 
 
 def pregunta_11():
@@ -363,10 +420,23 @@ def pregunta_11():
         "g": 35,
     }
 
-
     """
-    return
+    with open("data.csv") as f:
+        df = f.readlines()
+        df = [row.replace("\n", "") for row in df]
+        df = [row.split('\t') for row in df]
 
+    counter = {}
+    for row in df:
+        value = int(row[1])
+        pairs = row[3].split(',')
+        for pair in pairs:
+            if pair in counter.keys():
+                counter[pair] += value
+            else:
+                counter[pair] = value
+
+    return counter
 
 def pregunta_12():
     """
@@ -383,4 +453,22 @@ def pregunta_12():
     }
 
     """
-    return
+    with open("data.csv", "r")as file:
+        datos_12=file.readlines()
+    datos_12=[line.replace("\n","")for line in datos_12]
+    datos_12=[line.split("\t")for line in datos_12]
+    columna5=[line[4].split(",")for line in datos_12]
+    columna1=[line[0]for line in datos_12]
+    columna5_columna1=list(zip(columna1,columna5))
+    di3_keys=sorted(set(columna1))
+    di3={}
+    for llave in di3_keys:
+        di3[llave]=0
+    for x, y in columna5_columna1:
+        for z in y:
+            di3[x]+=int(z[4:])
+    
+
+    return di3
+
+    
