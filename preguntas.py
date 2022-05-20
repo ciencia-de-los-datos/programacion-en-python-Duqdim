@@ -318,7 +318,7 @@ def pregunta_08():
         coo=sorted(set(co))     
         cp=(l,(coo))
         pp.append(cp)  
-    return
+    return (pp)
 
 
 def pregunta_09():
